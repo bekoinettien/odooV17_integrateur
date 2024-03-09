@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="sessions_form_view" model="ir.ui.view">
+            <field name="name">sessions_sessions_form</field>
+            <field name="model">sessions.sessions</field>
+            <field name="arch" type="xml">
+                <form string="ModelTitle">
+                    <sheet>
+
+                        <group>
+                            <group>
+                                <field name="date_debut"/>
+                                <field name="date_fin"/>
+                                <field name="duree"/>
+                            </group>
+                            <group string="INFORMATION PERSO">
+                                <field name="nb_place"/>
+                                <field name="course_id"/>
+                                <field name="instructeur_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="sessions_tree_view" model="ir.ui.view">
+            <field name="name">sessions_sessions_tree</field>
+            <field name="model">sessions.sessions</field>
+            <field name="arch" type="xml">
+                <tree string="ModelTitle">
+                    <field name="course_id"/>
+                    <field name="instructeur_id"/>
+                    <field name="date_debut"/>
+                    <field name="date_fin"/>
+                    <field name="duree"/>
+                </tree>
+            </field>
+        </record>
+
+       <!-- <record id="sessions_search_view" model="ir.ui.view">
+            <field name="name">ProjectName.sessions.search</field>
+            <field name="model">ProjectName.sessions</field>
+            <field name="arch" type="xml">
+                <search string="ModelTitle">
+                    <group expand="1" string="Group By">
+                        <filter string="Example Field" name="example_field" domain="[]"
+                                context="{'group_by':'example_field'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+-->
+
+        <record id="sessions_act_window" model="ir.actions.act_window">
+            <field name="name">Sessions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sessions.sessions</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="SESSIONS" id="sessions_menu" parent="digi_scholl_root" action="sessions_act_window"/>
+
+    </data>
+</odoo>

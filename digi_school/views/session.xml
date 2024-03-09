@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="session_form_view" model="ir.ui.view">
+            <field name="name">session.session.form</field>
+            <field name="model">sessions.sessions</field>
+            <field name="arch" type="xml">
+                <form string="ModelTitle">
+                    <sheet>
+
+                        <group>
+
+                            <group string="INFORMATIONS PERSONNELS">
+                                <field name="nb_place"/>
+                                <field name="course_id"/>
+                                <field name="instructeur_id"/>
+                                <field name="create_date"/>
+                            </group>
+                            <group string="PERIODE">
+                                <field name="date_debut"/>
+                                <field name="date_fin"/>
+                                <field name="duree"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="session_tree_view" model="ir.ui.view">
+            <field name="name">session.session.tree</field>
+            <field name="model">sessions.sessions</field>
+            <field name="arch" type="xml">
+                <tree string="ModelTitle">
+                    <field name="course_id"/>
+                    <field name="instructeur_id"/>
+                    <field name="date_debut"/>
+                    <field name="date_fin"/>
+                    <field name="duree"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="session_calendar_view" model="ir.ui.view">
+            <field name="name">session.session.calendar</field>
+            <field name="model">sessions.sessions</field>
+            <field name="arch" type="xml">
+                <calendar string="ModelTitle" date_start="date_debut"  date_stop="date_fin" color="instructeur_id">
+                    <field name="course_id"/>
+                    <field name="nb_place" />
+                    <field name="instructeur_id" filters="1"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record id="session_graph_view" model="ir.ui.view">
+            <field name="name">session.session.graph</field>
+            <field name="model">sessions.sessions</field>
+            <field name="arch" type="xml">
+                <graph string="ModelTitle">
+                    <field name="instructeur_id"/>
+                    <field name="duree" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="session_pivot_view" model="ir.ui.view">
+            <field name="name">session.session.pivot</field>
+            <field name="model">sessions.sessions</field>
+            <field name="arch" type="xml">
+                <pivot string="ModelTitle">
+                    <field name="course_id" type="row"/>
+                    <field name="instructeur_id" type="col"/>
+                    <field name="duree" type="measure"/>
+                    <field name="nb_place" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="session_search_view" model="ir.ui.view">
+            <field name="name">session.session.search</field>
+            <field name="model">sessions.sessions</field>
+            <field name="arch" type="xml">
+                <search string="ModelTitle">
+                    <group expand="1" string="Group By">
+                        <filter string="instructeur" name="instructeur_id" domain="[]"
+                                context="{'group_by':'instructeur_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+       <!-- <record id="session_kanban_view" model="ir.ui.view">
+            <field name="name">ProjectName.session.kanban</field>
+            <field name="model">ProjectName.session</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="id"/>
+                    <field name="example_field"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click o_res_partner_kanban">
+                                <div class="oe_kanban_details">
+                                    <strong class="o_kanban_record_title oe_partner_heading">
+                                        <field name="example_field"/>
+                                    </strong>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>-->
+
+        <record id="session_act_window" model="ir.actions.act_window">
+            <field name="name">Sessions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sessions.sessions</field>
+            <field name="view_mode">tree,form,calendar,graph,pivot</field>
+            <field name="context">{"search_default_example_field":1}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="SESSIONS" id="session_menu" parent="digi_scholl_root" action="session_act_window"/>
+
+    </data>
+</odoo>

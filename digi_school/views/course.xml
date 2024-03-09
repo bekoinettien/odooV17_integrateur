@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="course_course_form_view" model="ir.ui.view">
+            <field name="name">course_course_form_view</field>
+            <field name="model">course.course</field>
+            <field name="arch" type="xml">
+                <form string="ModelTitle">
+                    <group>
+
+                      <field name="name"/>
+                      <field name="designation"/>
+                      <field name="responsable_id"/>
+                      <field name="active"/>
+                    </group>
+                    <notebook>
+                        <page string="Sessions">
+                            <field name="sessions_ids"/>
+                        </page>
+
+                    </notebook>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="course_course_tree_view" model="ir.ui.view">
+            <field name="name">course_course_tree_view</field>
+            <field name="model">course.course</field>
+            <field name="arch" type="xml">
+                <tree string="ModelTitle">
+                     <field name="name"/>
+                     <field name="designation"/>
+                </tree>
+            </field>
+        </record>
+        <!--<record id="" model="ir.ui.view">
+         <field name="name"></field>
+          <field name="model"></field>
+         <field name="arch" type="xml">
+            <kanban>
+           <field name="name"/>
+         <templates>
+         <t t-name="kanban-box">
+         </t>
+         </templates>
+         </kanban>
+         </field>
+        </record>-->
+
+        <!--<record id="ModelName_search_view" model="ir.ui.view">
+            <field name="name">ProjectName.ModelName.search</field>
+            <field name="model">ProjectName.ModelName</field>
+            <field name="arch" type="xml">
+                <search string="ModelTitle">
+                    <group expand="1" string="Group By">
+                        <filter string="Example Field" name="example_field" domain="[]"
+                                context="{'group_by':'example_field'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+-->
+        <record id="course_act_window" model="ir.actions.act_window">
+            <field name="name">Course</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">course.course</field>
+
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+
+            <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+            <menuitem id="digi_scholl_root" name="Digi_school" sequence="1"/>
+            <!-- This Menu Item must have a parent and an action -->
+            <menuitem id="digi_scholl_categ" name="COURS" parent="digi_scholl_root" action="course_act_window" sequence="1"/>
+    </data>
+</odoo>

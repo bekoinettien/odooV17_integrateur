@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+ag_agence_vehicule_user,Access_agence_vehicule_user,model_agence_vehicule,agence_lv.group_agence_lv_user,1,1,1,0
+ag_agence_vehicule_manager,Access_agence_vehicule_manager,model_agence_vehicule,agence_lv.group_agence_lv_manager,1,1,1,1

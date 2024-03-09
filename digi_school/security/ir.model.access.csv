@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_digi_school_employee,digi_school_employee,model_course_course,digi_school.group_digi_school_employee,1,1,1,0
+access_digi_school_managers,digi_school_manager,model_course_course,digi_school.group_digi_school_manager,1,1,1,1
+access_digi_school_employee,digi_school_employee,model_sessions_sessions,digi_school.group_digi_school_employee,1,1,1,0
+access_digi_school_managers,digi_school_manager,model_sessions_sessions,digi_school.group_digi_school_manager,1,1,1,1

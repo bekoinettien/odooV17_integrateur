@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    #vue form des etudiants
+    <record id="view_insertion_jeune_form" model="ir.ui.view">
+          <field name="name">view_insertion_jeune_form</field>
+          <field name="model">insertion.jeune</field>
+          <field name="arch" type="xml">
+            <form>
+              <group>
+                <group>
+                    <field name="name"/>
+                    <field name="sexe"/>
+                    <field name="adresse"/>
+                    <field name="telephone"/>
+                </group>
+                <group>
+                    <field name="email"/>
+                    <field name="date_nais"/>
+                    <field name="date_ins"/>
+                </group>
+              </group>
+            </form>
+          </field>
+        </record>
+      #vue liste des etudiants
+      <record id="view_insertion_jeune_tree" model="ir.ui.view">
+        <field name="name">view_insertion_jeune_tree</field>
+        <field name="model">insertion.jeune</field>
+        <field name="arch" type="xml">
+          <tree>
+            <field name="name"/>
+            <field name="sexe"/>
+            <field name="adresse"/>
+            <field name="telephone"/>
+            <field name="email"/>
+            <field name="date_nais"/>
+            <field name="date_ins"/>
+          </tree>
+        </field>
+      </record>
+      #vue action des etudiants
+    <record id="insertion_jeune_action" model="ir.actions.act_window">
+      <field name="name">Listes des jeunes</field>
+      <field name="res_model">insertion.jeune</field>
+      <field name="view_mode">tree,form</field>
+      <field name="context">{}</field>
+      <field name="view_id" eval="False"/>
+      <field name="help" type="html">
+       <p class="oe_view_nocontent_create">
+         Click ici pour créer un nouveau demandeur
+       </p>
+      </field>
+    </record>
+
+  </data>
+</odoo>

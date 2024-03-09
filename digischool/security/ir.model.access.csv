@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_digischool_digischool_user,digischool.digischool.user,model_digischool_digischool,,1,1,1,1

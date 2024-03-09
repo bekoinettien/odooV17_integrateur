@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <menuitem name="INSERTION"
+      id="root_menu_insertion_jeune"
+      sequence="1" web_icon="Insertion_Mairie,static/description/icon.png"/>
+
+    <menuitem name="jeunes"
+      id="root_menu_insertion_jeune_jeunes"
+      parent="root_menu_insertion_jeune"
+      action="insertion_jeune_action"
+      sequence="2"/>
+    <!-- <menuitem name="communes"
+      id="root_menu_insertion_commune_communes"
+      parent="root_menu_insertion_jeune"
+      action="insertion_commune_action"
+      sequence="3"/> -->
+  </data>
+</odoo>

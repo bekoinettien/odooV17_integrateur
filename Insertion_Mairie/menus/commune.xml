@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <menuitem name="communes"
+      id="root_menu_insertion_commune_communes"
+      parent="root_menu_insertion_jeune"
+      action="insertion_commune_action"
+      sequence="3"/>
+  </data>
+</odoo>

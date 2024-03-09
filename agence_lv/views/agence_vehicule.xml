@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        #vue formulaire
+        <record id="agence_lv_view_form" model="ir.ui.view">
+            <field name="name">agence_lv_view_form</field>
+            <field name="model">agence.vehicule</field>
+            <field name="arch" type="xml">
+                <form string="agence_lv_form">
+                    <sheet>
+                        <group>
+                           <group>
+                              <field name="marque"/>
+                              <field name="modele"/>
+                              <field name="matricule"/>
+                              <field name="designation_vehicule"/>
+                              <field name="chauffeur_ids" widget="many2many_tags"/>
+                              <field name="prix_achat_v"/>
+                              <field name="currency_id"/>
+                              <field name="prix_vente_v"/>
+                              <field name="note"/>
+                              <field name="description"/>
+                           </group>
+                            <group>
+                              <field name="active"/>
+                              <field name="veh_service"/>
+                              <field name="nb_place"/>
+                              <field name="state"/>
+                              <field name="dern_kilometrage"/>
+                              <field name="image_v" widget="image" class="oe_avatar"/>
+                              <field name="date_achat"/>
+                           </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        #la vue liste
+        <record id="agence_lv_view_tree" model="ir.ui.view">
+            <field name="name">agence_lv_view_tree</field>
+            <field name="model">agence.vehicule</field>
+            <field name="arch" type="xml">
+                <tree string="agence_lv_tree">
+                    <field name="marque"/>
+                    <field name="modele"/>
+                    <field name="matricule"/>
+                    <field name="designation_vehicule"/>
+                    <field name="date_achat"/>
+                </tree>
+            </field>
+        </record>
+        #vue recherche
+        <record id="agence_lv" model="ir.ui.view">
+           <field name="name">agence_lv</field>
+           <field name="model">agence.vehicule</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="marque"/>
+                    <field name="modele"/>
+                    <field name="date_achat"/>
+                    <filter string="Sans chauffeur"  name="without_driver"  domain="[('chauffeur_ids','=',False)]"/>
+
+            </search>
+           </field>
+        </record>
+       <record id="agence_vehicule_action" model="ir.actions.act_window">
+           <field name="name">Gestion des vehicules</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">agence.vehicule</field>
+           <field name="view_mode">tree,form</field>
+       </record>
+       <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+       <menuitem id="agence_vehicule_root" name="Mon Agence de vehicule" sequence="-1" web_icon="agence_lv,static/description/icon.png"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="agence_vehicule_categ" name="Vehicule" parent="agence_vehicule_root" action="agence_vehicule_action" sequence="1"/>
+    </data>
+</odoo>
