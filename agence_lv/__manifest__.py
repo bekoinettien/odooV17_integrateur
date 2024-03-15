@@ -15,6 +15,7 @@
         'security/ir.model.access.csv',
         'views/agence_vehicule.xml',
         'views/marque.xml',
+        'views/categorie_vehicule.xml'
         #'views/conducteur.xml'
     ],
     'demo': ['Demo'],
