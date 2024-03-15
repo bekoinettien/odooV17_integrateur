@@ -2,20 +2,20 @@ from odoo import api, fields, models
 class AgenceVehicule(models.Model) :
     _name ="agence.vehicule"
     _description = "agence de location de vehicule"
-    _rec_name = 'designation_vehicule'
-    marque = fields.Char('Marque', required=True)
+    # _rec_name = 'designation_vehicule'
+    marque_id = fields.Many2one(comodel_name='agence.marque',string='Marque',required=True)
     modele = fields.Char('Modèle', required=True)
     matricule = fields.Char('Matricule')
     designation_vehicule = fields.Char('Designation')
     date_achat = fields.Date('Date d Achat')
     chauffeur_ids = fields.Many2many('res.partner',string='Chauffeur')
 
-    def name_get(self):
-        result = []
-        for record in self:
-            rec_name = "%s-%s-%s" % (record.marque, record.modele, record.matricule)
-            result.append((record.id,rec_name))
-        return result
+    # def name_get(self):
+    #     result = []
+    #     for record in self:
+    #         # rec_name = "%s-%s-%s" % (record.marque_id, record.modele, record.matricule)
+    #         result.append((record.id,rec_name))
+    #     return result
     note = fields.Text('Note Interne', translate=True)
     state = fields.Selection([('new','Nouveau'),('fonctional','Fonctionnel'),('on_repair','En Reparation'),
                             ('declassed','Déclassé')], 'Etat', default="new")

@@ -10,7 +10,7 @@
                     <sheet>
                         <group>
                            <group>
-                              <field name="marque"/>
+                             <field name="marque_id"/>
                               <field name="modele"/>
                               <field name="matricule"/>
                               <field name="designation_vehicule"/>
@@ -41,7 +41,7 @@
             <field name="model">agence.vehicule</field>
             <field name="arch" type="xml">
                 <tree string="agence_lv_tree">
-                    <field name="marque"/>
+                   <field name="marque_id"/>
                     <field name="modele"/>
                     <field name="matricule"/>
                     <field name="designation_vehicule"/>
@@ -55,7 +55,7 @@
            <field name="model">agence.vehicule</field>
             <field name="arch" type="xml">
                 <search string="">
-                    <field name="marque"/>
+                  <field name="marque_id"/>
                     <field name="modele"/>
                     <field name="date_achat"/>
                     <filter string="Sans chauffeur"  name="without_driver"  domain="[('chauffeur_ids','=',False)]"/>
@@ -70,8 +70,11 @@
            <field name="view_mode">tree,form</field>
        </record>
        <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
-       <menuitem id="agence_vehicule_root" name="Mon Agence de vehicule" sequence="-1" web_icon="agence_lv,static/description/icon.png"/>
+<!--       <menuitem id="agence_vehicule_root" name="Mon Agence de vehicule" sequence="8" web_icon="agence_lv,static/description/icon.png"/>-->
         <!-- This Menu Item must have a parent and an action -->
-        <menuitem id="agence_vehicule_categ" name="Vehicule" parent="agence_vehicule_root" action="agence_vehicule_action" sequence="1"/>
+        <menuitem id="agence_lv_root" name="Mon Agence de vehicule" sequence="-1"  web_icon="agence_lv,static/description/icon.png"/>
+        <menuitem id="agence_vehicule_categ" name="Vehicule" parent="agence_lv_root" action="agence_vehicule_action" sequence="2"/>
+        <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+
     </data>
 </odoo>

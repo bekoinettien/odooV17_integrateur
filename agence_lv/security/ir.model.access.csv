@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-$UID$,$AccessName$,model_$ProjectName$_$ModelName$,$ProjectName$.group_$ProjectName$_employee,1,1,1,1
+ag_agence_vehicule_user,Access_agence_vehicule_user,model_agence_vehicule,,1,1,1,1
+ag_agence_marque_user,Access_agence_marque_user,model_agence_marque,,1,1,1,1
+

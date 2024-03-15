@@ -11,9 +11,11 @@
     'depends': ['base'],
     'data': [
         #'Data'
-        'security/groups.xml',
+        #'security/groups.xml',
         'security/ir.model.access.csv',
-        'views/agence_vehicule.xml'
+        'views/agence_vehicule.xml',
+        'views/marque.xml',
+        #'views/conducteur.xml'
     ],
     'demo': ['Demo'],
     'installable': True,
