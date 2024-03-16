@@ -15,8 +15,10 @@
         'security/ir.model.access.csv',
         'views/agence_vehicule.xml',
         'views/marque.xml',
-        'views/categorie_vehicule.xml'
-        #'views/conducteur.xml'
+        'views/categorie_vehicule.xml',
+        'views/driver.xml',
+
+        #'views/conducteur.xml',
     ],
     'demo': ['Demo'],
     'installable': True,

@@ -1,69 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
+           <record id="agence_conducteur_inherit_form_view" model="ir.ui.view">
+                <field name="name">Gestion des conducteurs</field>
+                <field name="model">res.partner</field>
+                <field name="inherit_id" ref="base.view_partner_form"/>
+                <field name="arch" type="xml">
+                  <form string="ModelTitle">
+                        <sheet>
 
-        <record id="agence_conducteur_form_view" model="ir.ui.view">
-            <field name="name">Gestion des conducteurs</field>
-            <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_partner_form"/>
-            <field name="arch" type="xml">
-               <!-- <form string="ModelTitle">
-                    <sheet>
+                            <group>
+                                <group>
+                                    <field name="create_date"/>
+                                </group>
+                                <group>
+                                    <field name="example_field"/>
+                                </group>
+                            </group>
+                        </sheet>
+                    </form>
+                    <field name="type" position="before"/>
+                    <field name="vehicules_autorises_ids" widget="many2many_tags"/>
+                </field>
+           </record>
 
-                        <group>
-                            <group>
-                                <field name="create_date"/>
-                            </group>
-                            <group>
-                                <field name="example_field"/>
-                            </group>
+           <record id="conducteur_tree_view" model="ir.ui.view">
+                <field name="name">ProjectName.conducteur.tree</field>
+                <field name="model">ProjectName.conducteur</field>
+                <field name="arch" type="xml">
+                    <tree string="ModelTitle">
+                        <field name="create_date"/>
+                        <field name="example_field"/>
+                    </tree>
+                </field>
+           </record>
+
+            <record id="conducteur_search_view" model="ir.ui.view">
+                <field name="name">ProjectName.conducteur.search</field>
+                <field name="model">ProjectName.conducteur</field>
+                <field name="arch" type="xml">
+                    <search string="ModelTitle">
+                        <group expand="1" string="Group By">
+                            <filter string="Example Field" name="example_field" domain="[]"
+                                    context="{'group_by':'example_field'}"/>
                         </group>
-                    </sheet>
-                </form>-->
-                <field name="type" position="before"/>
-                <field name="vehicules_autorises_ids" widget="many2many_tags"/>
-            </field>
-        </record>
+                    </search>
+                </field>
+            </record>
 
-       <!-- <record id="conducteur_tree_view" model="ir.ui.view">
-            <field name="name">ProjectName.conducteur.tree</field>
-            <field name="model">ProjectName.conducteur</field>
-            <field name="arch" type="xml">
-                <tree string="ModelTitle">
-                    <field name="create_date"/>
-                    <field name="example_field"/>
-                </tree>
-            </field>
-        </record>
+            <record id="agence_conducteur_inherit_act_window" model="ir.actions.act_window">
+                <field name="name">Gestion des conducteurs</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">res.partner</field>
 
-        <record id="conducteur_search_view" model="ir.ui.view">
-            <field name="name">ProjectName.conducteur.search</field>
-            <field name="model">ProjectName.conducteur</field>
-            <field name="arch" type="xml">
-                <search string="ModelTitle">
-                    <group expand="1" string="Group By">
-                        <filter string="Example Field" name="example_field" domain="[]"
-                                context="{'group_by':'example_field'}"/>
-                    </group>
-                </search>
-            </field>
-        </record>
--->
-        <record id="agence_conducteur_act_window" model="ir.actions.act_window">
-            <field name="name">Gestion des conducteurs</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">res.partner</field>
+                <field name="view_mode">tree,form</field>
+                <field name="help" type="html">
+                    <p class="oe_view_nocontent_create">
+                        There is no examples click here to add new ModelTitle.
+                    </p>
+                </field>
+            </record>
 
-            <field name="view_mode">tree,form</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">
-                    There is no examples click here to add new ModelTitle.
-                </p>
-            </field>
-        </record>
+    This Menu Item Must have a parent
+    <menuitem id="conducteur_ID_categ" name="Conducteur" parent="agence_lv_root"  action="agence_conducteur_act_window"/>
 
-       <!-- This Menu Item Must have a parent -->
-       <menuitem id="conducteur_ID_categ" name="Conducteur" parent="agence_lv_root"  action="agence_conducteur_act_window" sequence="4"/>
 
-    </data>
 </odoo>
