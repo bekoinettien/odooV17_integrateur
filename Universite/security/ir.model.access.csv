@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_universite_etudiant_user,universite.etudiant.user,model_universite_etudiant,,1,1,1,1
+access_universite_professeur_user,universite.professeur.user,model_universite_professeur,,1,1,1,1
+access_universite_departement_user,universite.departement.user,model_universite_departement,,1,1,1,1
+access_universite_matiere_user,universite.matiere.user,model_universite_matiere,,1,1,1,1
+access_universite_classe_user,universite.classe.user,model_universite_classe,,1,1,1,1
+access_cahier_appel_user,cahier.appel.user,model_cahier_appel,,1,1,1,1
+access_universite_scolarite_user,universite.scolarite.user,model_universite_scolarite,,1,1,1,1
+access_universite_note_user,universite.note.user,model_universite_note,,1,1,1,1
+access_universite_paiement_user,universite.paiement.user,model_universite_paiement,,1,1,1,1

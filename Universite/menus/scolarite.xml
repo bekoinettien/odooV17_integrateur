@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <!-- <menuitem name="professeurs"
+      id="root_menu_universite_professeur"
+      action="universite_professeur_action"
+      sequence="20"/> -->
+
+    <menuitem name="configuraion"
+      id="root_menu_universite_scolarite"
+      parent="root_menu_universite"
+      sequence="8"/>
+    <menuitem name="scolarite"
+      id="root_menu_universite_scolarite_scolarite"
+      parent="root_menu_universite_scolarite"
+      action="universite_scolarite_action"
+      sequence="1"/>
+
+      <menuitem name="matieres"
+        id="root_menu_universite_matiere_matieres"
+        parent="root_menu_universite_scolarite"
+        action="universite_matiere_action"
+        sequence="2"/>
+
+        <menuitem name="Classes"
+          id="root_menu_universite_classe_classes"
+          parent="root_menu_universite_scolarite"
+          action="universite_classe_action"
+          sequence="3"/>
+        <menuitem name="Notes"
+          id="root_menu_universite_note_notes"
+          parent="root_menu_universite_scolarite"
+          action="universite_note_action"
+          sequence="4"/>
+        <menuitem name="Paiements"
+          id="root_menu_universite_paiement_paiements"
+          parent="root_menu_universite_scolarite"
+          action="universite_paiement_action"
+          sequence="5"/>
+  </data>
+</odoo>

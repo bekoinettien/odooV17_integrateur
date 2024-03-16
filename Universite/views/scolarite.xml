@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_universite_scolarite_form" model="ir.ui.view">
+            <field name="name">view_universite_scolarite_form</field>
+            <field name="model">universite.scolarite</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="etudiant_id"/>
+                            <field name="amount"/>
+                            <field name="payment_date"/>
+                            <field name="payment_method"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="universite_scolarite_action" model="ir.actions.act_window">
+            <field name="name">Paiement de la scolarité</field>
+            <field name="res_model">universite.scolarite</field>
+            <field name="view_mode">form</field>
+            <field name="context">{}</field>
+            <field name="view_id" eval="False"/>
+            <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               Click ici pour créer un nouvel paiement
+             </p>
+           </field>
+        </record>
+    </data>
+</odoo>

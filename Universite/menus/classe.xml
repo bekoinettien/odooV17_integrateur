@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <menuitem name="Universite"
+      id="root_menu_universite"
+      sequence="1"/>
+
+    <!-- <menuitem name="classes"
+      id="root_menu_universite_classe"
+      action="universite_classe_action"
+      sequence="1"/> -->
+
+    <menuitem name="classes"
+      id="root_menu_universite_classe"
+      parent="root_menu_universite"
+      sequence="0"/>
+
+    <menuitem name="Classes"
+      id="root_menu_universite_classe_classes"
+      parent="root_menu_universite_classe"
+      action="universite_classe_action"
+      sequence="1"/>
+      <menuitem name="Cahier d'appel"
+        id="root_menu_cahier_appel"
+        parent="root_menu_universite"
+        sequence="6"/>
+
+        <menuitem name="Cahier d'appel"
+          id="root_menu_cahier_appel_cahier"
+          parent="root_menu_cahier_appel"
+          action="cahier_appel_action"
+          sequence="1"/>
+
+  </data>
+</odoo>

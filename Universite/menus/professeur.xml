@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <!-- <menuitem name="professeurs"
+      id="root_menu_universite_professeur"
+      action="universite_professeur_action"
+      sequence="20"/> -->
+
+    <menuitem name="professeurs"
+      id="root_menu_universite_professeur_professeurs"
+      parent="root_menu_universite"
+      action="universite_professeur_action"
+      sequence="5"/>
+  </data>
+</odoo>

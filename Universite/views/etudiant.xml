@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    #vue form des etudiants
+    <record id="view_universite_etudiant_form" model="ir.ui.view">
+          <field name="name">view_universite_etudiant_form</field>
+          <field name="model">universite.etudiant</field>
+          <field name="arch" type="xml">
+            <form>
+              <header>
+                <button name="suivant" type="object" class="oe_highlight" string="année suivante">/</button>
+                <field name="state" widget="statusbar" nolabel="0" ></field>
+              </header>
+              <group>
+                <group>
+                    <field name="matricule"/>
+                    <field name="name"/>
+                    <field name="prenom"/>
+                    <field name="sexe"/>
+                    <field name="adresse"/>
+                    <field name="telephone"/>
+                </group>
+                <group>
+                    <field name="email"/>
+                    <field name="date_nais"/>
+                    <field name="date_ins"/>
+                    <field name="departement_id"/>
+                    <field name="classe_id"/>
+                </group>
+              </group>
+              <notebook>
+                <page string="Liste des matières">
+                    <field name="matiere_ids"/>
+                </page>
+              </notebook>
+            </form>
+          </field>
+        </record>
+      #vue liste des etudiants
+      <record id="view_universite_etudiant_tree" model="ir.ui.view">
+        <field name="name">view_universite_etudiant_tree</field>
+        <field name="model">universite.etudiant</field>
+        <field name="arch" type="xml">
+          <tree>
+            <field name="matricule"/>
+            <field name="name"/>
+            <field name="prenom"/>
+            <field name="sexe"/>
+            <field name="adresse"/>
+            <field name="telephone"/>
+            <field name="email"/>
+            <field name="date_nais"/>
+            <field name="date_ins"/>
+          </tree>
+        </field>
+      </record>
+      #vue action des etudiants
+    <record id="universite_etudiant_action" model="ir.actions.act_window">
+      <field name="name">Listes des etudiants</field>
+      <field name="res_model">universite.etudiant</field>
+      <field name="view_mode">tree,form</field>
+      <field name="context">{}</field>
+      <field name="view_id" eval="False"/>
+      <field name="help" type="html">
+       <p class="oe_view_nocontent_create">
+         Click ici pour créer un nouvel etudiant
+       </p>
+      </field>
+    </record>
+
+  </data>
+</odoo>

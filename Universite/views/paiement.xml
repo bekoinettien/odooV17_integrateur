@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Payment Details Form View -->
+        <record id="view_universite_paiement_form" model="ir.ui.view">
+            <field name="name">view_universite_paiement_form</field>
+            <field name="model">universite.paiement</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <!-- Add your existing fields here -->
+                        <field name="matricule"/>
+                        <field name="name" readonly="1"/>
+                        <field name="prenom" readonly="1"/>
+                        <field name="telephone" readonly="1"/>
+                        <field name="date_ins" readonly="1"/>
+                        <!-- <field name="total_paid" readonly="1"/>
+                        <field name="remaining_amount" readonly="1"/> -->
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record id="universite_paiement_action" model="ir.actions.act_window">
+              <field name="name">Listes des paiement</field>
+              <field name="res_model">universite.paiement</field>
+              <field name="view_mode">tree,form</field>
+              <field name="context">{}</field>
+              <field name="view_id" eval="False"/>
+              <field name="help" type="html">
+               <p class="oe_view_nocontent_create">
+                 Click ici pour créer un nouvel etudiant
+               </p>
+              </field>
+        </record>
+    </data>
+</odoo>
