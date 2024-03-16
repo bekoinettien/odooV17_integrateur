@@ -29,7 +29,19 @@ class AgenceVehicule(models.Model) :
                                     states={'on_repair': [('readonly',True)],#mode lectuer seul si la voiture est en reparation
                                             'declassed': [('invisible',True)]},# invisible si la voiture est declasse
                                     help='Mettez ici le dernier kilometrage')
-    prix_achat_v = fields.Float('Pric Achat')
+    prix_achat_v = fields.Float('Prix Achat')
     currency_id = fields.Many2one('res.currency', string='Symbole Monetaire')
     prix_vente_v = fields.Monetary('Prix de vente', digits='Prix vehicule', currency_field='currency_id')
+    #Contrainte avec la base de donnée SQL
+    _sql_constraints = [
+        ('mat_uniq', 'UNIQUE(matricule)',#permet au vehicule d'avoir un matricule UNIQUE
+         'Les matricules doivent etre unique'),
+        ('nb_place' , 'CHECK(nb_place<=5)',#permet de verifier le nombre de place
+         'le nombre de place ne doit pas depassés 5 ')
+    ]
+    @api.constrains('date_achat')
+    def _check_date_achat(self):
+        for record in self:
+            if record.date_achat and record.date_achat>fields.Date.today():
+                raise models.ValidationError('La date d achat ne doit pas depassée la date du jours')
 
